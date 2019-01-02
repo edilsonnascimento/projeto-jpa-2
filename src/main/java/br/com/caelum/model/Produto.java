@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Version;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
@@ -43,6 +44,9 @@ public class Produto {
 	@ManyToMany
 //	@JoinTable(name="CATEGORIA_PRODUTO")
 	private List<Categoria> categorias = new ArrayList<Categoria>();
+	
+	@Version
+	private Integer versao;
 	
 	public String getDescricao() {
 		return descricao;
@@ -106,6 +110,14 @@ public class Produto {
 
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
+	}
+
+	public Integer getVersao() {
+		return versao;
+	}
+
+	public void setVersao(Integer versao) {
+		this.versao = versao;
 	}
 
 }
